@@ -3,45 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.lab.ocp.day05;
+package com.lab.ocp.day06;
+
+
 
 /**
  *
  * @author MB-study
  */
-public class Hamburger {
-    private String name;
-    private  int price;
-    
+public class Hamburger extends Food{
+
     public Hamburger() {
-        
     }
-    
+
     public Hamburger(String name, int price) {
-        this.name = name;
-        this.price = price;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public int getPrice() {
-        return price;
-    }
-    
-    public void setPrice(int price) {
-        this.price = price;
+        super(name, price);
     }
     
     public void cook() {
-        System.out.println(name + "作法");
+        System.out.println(getName() + "作法");
         String food = "";
-        switch(name) {
+        switch(getName()) {
             case "大麥克":
                 food = "牛肉";
                 break;
@@ -58,10 +40,6 @@ public class Hamburger {
         System.out.println("3.放醬料");
         System.out.println("4.包裝");
         System.out.println("-----------------------------");
-    }
-    @Override
-    public String toString() {
-        return String.format("name: %s price: %d", name, price);
     }
     
 }
