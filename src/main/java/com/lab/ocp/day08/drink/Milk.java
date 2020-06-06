@@ -3,15 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.lab.ocp.day08;
+package com.lab.ocp.day08.drink;
 
 /**
  *
  * @author MB-study
  */
-public class Tea implements Drink{
+public class Milk implements Drink{
     private String name;
     private Integer price;
+
+    public Milk() {
+    }
+
+    public Milk(String name, Integer price) {
+        this.name = name;
+        this.price = price;
+    }
+    
+    
 
     @Override
     public String getName() {
