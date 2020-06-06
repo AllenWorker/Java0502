@@ -1,12 +1,14 @@
 package com.lab.ocp.day08.clothes.example;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.function.ToIntFunction;
 
 public class ClothesStore {
-    public static void main(String[] args) throws Exception {
+    // 資料匯入
+    public static ICloth[] getClothes() throws FileNotFoundException {
         File file = new File("src\\main\\java\\com\\lab\\ocp\\day08\\clothes\\example\\clothes.txt");
         String data = new Scanner(file).useDelimiter("\\A").next();
         String[] rows = data.split("\n");
@@ -50,6 +52,12 @@ public class ClothesStore {
         for(ICloth clothes : clotheses) {
             System.out.println(clothes);
         }
+        return clotheses;
+    }
+    
+    // 主程式
+    public static void main(String[] args) throws Exception {
+        ICloth[] clotheses = getClothes();
         // 1.總庫存成本
         ToIntFunction<ICloth> amountMultiPrice = c -> c.getAmount() * c.getPrice();
         int total = Arrays.stream(clotheses)
